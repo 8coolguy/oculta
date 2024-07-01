@@ -1,3 +1,0 @@
-/root/dev/oculta/CMakeFiles/oculta.dir
-/root/dev/oculta/CMakeFiles/edit_cache.dir
-/root/dev/oculta/CMakeFiles/rebuild_cache.dir

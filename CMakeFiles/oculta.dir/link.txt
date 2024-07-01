@@ -1,1 +1,0 @@
-/usr/bin/c++ -rdynamic CMakeFiles/oculta.dir/functions_test.cpp.o CMakeFiles/oculta.dir/functions.cpp.o CMakeFiles/oculta.dir/testing.cpp.o -o oculta 
