@@ -23,8 +23,12 @@ int64 gcd(int64 a, int64 b){
 int64 inverse(int64 a, int64 p, int64 &x, int64 &y){
 	if(gcd(a,p) != 1) return -1;
 	if(a > p) return inverse(a % p , p, x, y);
+	if(a == 0){
+		x = 0;
+		y = 1;
+		return y;
+	}
 	if(p % a == 1){
-
 		x = 1;
 		y = -(p / a);
 		return y;
