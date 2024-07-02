@@ -33,12 +33,8 @@ int main(){
 	c = forcePositive(inverse(29, 42, x, y), 42);
 	cout << test(c,29) << "\t" << 29 << "\t" << 42 << endl;
 
-
 	c = forcePositive(inverse(3123123123, 2623423423,x, y), 2623423423);
 	cout << test(c,1639639642) << "\t" << 3123123123 << "\t" << 2623423423 << endl;
-
-
-
 
 
 	return 0;
