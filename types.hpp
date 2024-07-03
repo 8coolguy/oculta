@@ -19,14 +19,14 @@
 #include <cstdint>
 
 typedef long long int int64;
-typedef uint8_t byte;
+typedef uint8_t int8;
 struct int48 {
-	byte w0;
-	byte w1;
-	byte w2;
-	byte w3;
-	byte w4;
-	byte w5;
+	int8 w0;
+	int8 w1;
+	int8 w2;
+	int8 w3;
+	int8 w4;
+	int8 w5;
 } __attribute__((packed));
 
 #endif
