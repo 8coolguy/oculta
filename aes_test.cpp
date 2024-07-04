@@ -10,7 +10,7 @@ int main(){
 	cout << "AES Tests" << endl;
 	SimpleAes aes;
 	aes.setKey(0x3BA7);
-	aes.encrypt();
+	aes.encrypt("This is the message");
 
 	return 0;
 }

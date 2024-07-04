@@ -16,7 +16,7 @@ void SymmetricEncryption::setKey(short key) {
 	_key = key;
 }
 
-void SymmetricEncryption::encrypt() {
+void SymmetricEncryption::encrypt(std::string message) {
 	std::cout << "Encrypt" << std::endl;
 }
 

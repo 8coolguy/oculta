@@ -8,6 +8,7 @@
 */
 
 #include "types.hpp"
+#include <iostream>
 
 #ifndef SYMMETRIC_ENCRYPTION_HPP
 #define SYMMETRIC_ENCRYPTION_HPP
@@ -18,7 +19,7 @@ protected:
 	short _key;
 public:
 	SymmetricEncryption();
-	virtual void encrypt();
+	virtual void encrypt(std::string message);
 	virtual void decrypt();
 	virtual short getKey();
 	void setKey(short key);
@@ -31,7 +32,7 @@ private:
 	int8 subNib(int8 b);
 public:
 	SimpleAes();
-	virtual void encrypt();
+	virtual void encrypt(std::string message);
 	virtual void decrypt();
 	virtual short getKey();
 

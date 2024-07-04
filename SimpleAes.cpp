@@ -51,6 +51,7 @@ struct int48 SimpleAes::expandKey(){
 	int8 w4 = w2 ^ rcon(2) ^ subNib(rotNib(w3));
 	int8 w5 = w4 ^ w3;
 
+	struct int48 key = {w0, w1, w2, w3, w4, w5};
 
 	std::cout << "Original short number: " << std::hex << _key << std::endl;	    
 	std::cout << "W0 " << std::hex << static_cast<int>(w0) << std::endl;
@@ -59,11 +60,19 @@ struct int48 SimpleAes::expandKey(){
 	std::cout << "W3 " << std::hex << static_cast<int>(w3) << std::endl;
 	std::cout << "W4 " << std::hex << static_cast<int>(w4) << std::endl;
 	std::cout << "W5 " << std::hex << static_cast<int>(w5) << std::endl;
+	return key;
 
 }
-void SimpleAes::encrypt() {
+void SimpleAes::encrypt(std::string message) {
+	if(message.size()!=2) return;	
+	struct int48 key = expandKey();
 	
-	expandKey();
+
+
+
+
+
+
 	
 }
 void SimpleAes::decrypt() {
