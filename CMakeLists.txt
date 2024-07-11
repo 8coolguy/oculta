@@ -3,3 +3,4 @@ project(oculta)
 
 add_executable(function_tests functions_test.cpp functions.cpp testing.cpp)
 add_executable(aes_tests aes_test.cpp functions.cpp testing.cpp SymmetricEncryption.cpp SimpleAes.cpp)
+add_executable(rsa_tests rsa_test.cpp functions.cpp testing.cpp AsymmetricEncryption.cpp Rsa.cpp)

@@ -49,3 +49,14 @@ int64 forcePositive(int64 result, int64 p){
 	if(result < 0) return result + p;
 	return result;
 }
+
+/*
+*
+*
+*
+*/
+int64 carmichaelFunction(int64 p, int64 q){
+	int64 result = (p - 1) * (q - 1);
+	result = (result / gcd(p - 1, q - 1));
+	return result;	
+}

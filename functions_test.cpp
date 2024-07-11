@@ -36,6 +36,12 @@ int main(){
 	c = forcePositive(inverse(3123123123, 2623423423,x, y), 2623423423);
 	cout << test(c,1639639642) << "\t" << 3123123123 << "\t" << 2623423423 << endl;
 
+	int64 p,q;
+	p = 17;
+	q = 19;
+	c = carmichaelFunction(p, q);
+	cout << test(c,144) << "\t" << p << "\t" << q << endl;
+
 
 	return 0;
 }
