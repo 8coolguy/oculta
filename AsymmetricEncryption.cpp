@@ -19,7 +19,7 @@ AsymmetricEncryption::AsymmetricEncryption() {
 }
 void AsymmetricEncryption::generateKeys() {	
 }
-std::string AsymmetricEncryption::encrypt(int8 key,std::string message) {
+std::string AsymmetricEncryption::encrypt(int64 key,std::string message) {
 	return std::string();
 }
 std::string AsymmetricEncryption::decrypt(std::string cipherText) {

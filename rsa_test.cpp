@@ -17,7 +17,8 @@ using namespace std;
 int main(){
 	cout << "RSA Tests" << endl;
 	Rsa rsa;
-	
+	string s = rsa.encrypt(17, "A");
+	s = rsa.decrypt(s);
 	
 
 

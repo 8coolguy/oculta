@@ -108,7 +108,6 @@ void SimpleAes::encrypt(std::string message) {
 	temp0 = temp0 ^ key.w0;
 	temp1 = temp1 ^ key.w1;
 
-	std::cout << "Add Key" << std::bitset<8>(temp0) << std::endl << std::bitset<8>(temp1) << std::endl;
 	temp0 = subNib(temp0);
 	temp1 = subNib(temp1);
 
@@ -117,7 +116,6 @@ void SimpleAes::encrypt(std::string message) {
 	temp0 = mixCol(temp0);
 	temp1 = mixCol(temp1);
 	
-	std::cout <<"Sub Shit Mix Key" << std::bitset<8>(temp0) << std::endl << std::bitset<8>(temp1) << std::endl;
 	temp0 = temp0 ^ key.w2;
 	temp1 = temp1 ^ key.w3;
 

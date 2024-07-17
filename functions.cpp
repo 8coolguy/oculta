@@ -60,3 +60,23 @@ int64 carmichaelFunction(int64 p, int64 q){
 	result = (result / gcd(p - 1, q - 1));
 	return result;	
 }
+
+/*
+*
+*
+*
+*
+*
+*/
+int64 modularExponentiation(int64 base, int64 exponent, int64 mod){
+	int64 res = 1;
+	base = base % mod;
+	while(exponent > 0){
+		if(exponent % 2 == 1){
+			res = (res * base) % mod;
+		}
+		exponent = exponent >> 1;
+		base = (base * base) % mod;
+	}
+	return res;
+}
