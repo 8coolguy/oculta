@@ -80,3 +80,29 @@ int64 modularExponentiation(int64 base, int64 exponent, int64 mod){
 	}
 	return res;
 }
+
+/*
+*
+*
+*
+*
+*
+*
+*/
+std::string toString(int64 message){
+
+	std::string res;
+	for(int i = 0; message > 0; i++) {
+		res += char(message & 0x00000000000000ff);
+		message = message >> 8;
+	}
+	return res;
+}
+
+int64 toInt(std::string message){
+	int64 res = 0;
+	for(int i = 0; i < message.size(); i++) {
+		res = res | int64((char)message[i]) << (8*i);
+	}
+	return res;
+}

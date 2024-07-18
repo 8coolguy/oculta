@@ -37,4 +37,13 @@ public:
 	virtual short getKey();
 
 };
+
+class Base64Encoder{
+private:
+	std::string _base64Chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";	
+public:
+	Base64Encoder();
+	std::string encode(int64 message);
+	int64 decode(std::string encodedMessage);
+};
 #endif // !SYMME
