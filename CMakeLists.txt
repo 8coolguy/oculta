@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.1)
 project(oculta)
 
-add_executable(function_tests functions_test.cpp functions.cpp testing.cpp)
-add_executable(aes_tests aes_test.cpp functions.cpp testing.cpp SymmetricEncryption.cpp SimpleAes.cpp)
-add_executable(rsa_tests rsa_test.cpp functions.cpp testing.cpp AsymmetricEncryption.cpp Rsa.cpp Base64Encoder.cpp)
-add_executable(base64_tests base64_test.cpp functions.cpp testing.cpp Base64Encoder.cpp)
+add_executable(function_tests.o functions_test.cpp functions.cpp testing.cpp)
+add_executable(aes_tests.o aes_test.cpp functions.cpp testing.cpp SymmetricEncryption.cpp SimpleAes.cpp)
+add_executable(rsa_tests.o rsa_test.cpp functions.cpp testing.cpp AsymmetricEncryption.cpp Rsa.cpp Base64Encoder.cpp)
+add_executable(base64_tests.o base64_test.cpp functions.cpp testing.cpp Base64Encoder.cpp)

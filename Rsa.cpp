@@ -15,51 +15,59 @@
 #include "SymmetricEncryption.hpp"
 #include "functions.hpp"
 
+#define SIZEPERCHAR 11
+
 Rsa::Rsa() {
 	std::srand(3);
 	std::cout << "Rsa" << std::endl;
-	_p = 61;
-	_q = 53;
-	_n = _p * _q;
+	_p = 1381;
+	_q = 1453;
+	n = _p * _q;
 	generateKeys();
 	std::cout << "p = " << _p << std::endl << "q = " << _q << std::endl;
-	std::cout << "n = " << _n << std::endl << "d = " << _d << std::endl;
-	std::cout << "e = " << _e << std::endl;
+	std::cout << "n = " << n << std::endl << "d = " << _d << std::endl;
+	std::cout << "e = " << e << std::endl;
 }
+/*
+* Genreates public and private keys. Uses Sieve of Eratosthenes algorithm to
+* gernerate prime numbers for the keys. Randomly generates e.
+*
+*
+*/
 void Rsa::generateKeys() {
 	// generate e
-	_e = _p - 1;
+	e = _p - 1;
+	
+
 	int64 ln = carmichaelFunction(_p, _q);
 	std::cout << "ln = " << (int)ln << std::endl;
 
-	while(gcd(_e, ln) != 1) {
-		_e = std::rand() % ln;
+	while(gcd(e, ln) != 1) {
+		e= std::rand() % ln;
 	}
-	_e = 17;
 	// generate d
 	int64 x,y;
-	_d = forcePositive(inverse(_e, ln,x, y),ln);
+	_d = forcePositive(inverse(e, ln,x, y),ln);
 }
-std::string Rsa::encrypt(int64 key,std::string message) {
-	Base64Encoder encoder;
-	assert(message.size() < 9);
-	int64 res =0;
-	for(int i = 0; i < message.size(); i++) {
-		res = res | int64((char)message[i]) << (8*i);
-	}
-	res = modularExponentiation(res, _e, _n);
-	std::cout << res << std::endl;
-	std::string resStr = encoder.encode(res);
+std::string Rsa::encrypt(int64 key,std::string message, int64 mod) {
 
-	std::cout << resStr << std::endl;
+	Base64Encoder encoder;
+	std::string resStr;
+	for(int i = 0; i < message.size(); i++) {
+		int64 res = char(message[i]);
+		res = modularExponentiation(res, key, mod);
+		resStr += encoder.encode(res);
+	}
 	return resStr;
 }
+
 std::string Rsa::decrypt(std::string cipherText) {
-	assert(cipherText.size() < 12);
 	Base64Encoder decoder;
-	int64 res = decoder.decode(cipherText);
-	std::cout << res << std::endl;
-	res = modularExponentiation(res, _d, _n);
-	std::string resStr = toString(res);
+	std::string resStr;
+	for(int i = 0; i < cipherText.size()/SIZEPERCHAR; i++) {
+		int64 res = decoder.decode(cipherText.substr(i*SIZEPERCHAR, SIZEPERCHAR));
+		res = modularExponentiation(res, _d, n);
+		resStr += toString(res);
+	}
 	return resStr;
 }
