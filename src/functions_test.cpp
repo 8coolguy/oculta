@@ -42,6 +42,16 @@ int main(){
 	c = carmichaelFunction(p, q);
 	cout << test(c,144) << "\t" << p << "\t" << q << endl;
 
+	c = fermatsPrimeTest(17, 5);
+	cout << test(c,1) << "\t" << 17 << "\t" << 5 << endl;
 
+	c = fermatsPrimeTest(6, 5);
+	cout << test(c,0) << "\t" << 6 << "\t" << 5 << endl;
+
+	c = fermatsPrimeTest(221, 38);
+	cout << test(c,1) << "\t" << 221 << "\t" << 38 << endl;
+
+	c = fermatsPrimeTest(221, 24);
+	cout << test(c,0) << "\t" << 221 << "\t" << 24 << endl;
 	return 0;
 }

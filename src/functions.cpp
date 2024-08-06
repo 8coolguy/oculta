@@ -98,11 +98,42 @@ std::string toString(int64 message){
 	}
 	return res;
 }
-
+/*
+*
+*
+*
+*
+*/
 int64 toInt(std::string message){
 	int64 res = 0;
 	for(int i = 0; i < message.size(); i++) {
 		res = res | int64((char)message[i]) << (8*i);
 	}
 	return res;
+}
+
+/*
+* Generate a prime number for RSA.
+* Source: https://en.wikipedia.org/wiki/Generation_of_primes
+*
+*
+*/
+int64 generatePrimes(){
+	//1. Generate Random Number
+	
+	//2. Check if it is prime with miller Rabin or fermats prime test
+	
+	//3. If not, generate another
+}
+
+/*
+* Fermats Primality Test
+*
+*
+*
+*
+*/
+bool fermatsPrimeTest(int64 n, int64 a){
+	//assert that a is not divisible by n
+	return modularExponentiation(a, n - 1, n) == 1;
 }
