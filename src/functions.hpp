@@ -12,5 +12,5 @@ std::string toString(int64 message);
 int64 toInt(std::string message);
 
 bool fermatsPrimeTest(int64 n, int64 a);
-//int64 millerRabinTest(int64 n, int64 a);
+bool millerRabinTest(int64 n, int64 a);
 #endif // 

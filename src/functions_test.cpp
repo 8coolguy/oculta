@@ -8,7 +8,7 @@ using namespace std;
 int main(){
 	cout << "GCD Tests" << endl;
 	int64 c = gcd(12, 4);
-	cout << test(c,5) << "\t" << 12 << "\t" << 4 << endl;
+	cout << test(c,4) << "\t" << 12 << "\t" << 4 << endl;
 
 	c = gcd(12, 7);
 	cout << test(c,1) << "\t" << 12 << "\t" << 7 << endl;
@@ -36,11 +36,15 @@ int main(){
 	c = forcePositive(inverse(3123123123, 2623423423,x, y), 2623423423);
 	cout << test(c,1639639642) << "\t" << 3123123123 << "\t" << 2623423423 << endl;
 
+	cout << "Carmichael Tests" << endl;
+
 	int64 p,q;
 	p = 17;
 	q = 19;
 	c = carmichaelFunction(p, q);
 	cout << test(c,144) << "\t" << p << "\t" << q << endl;
+
+	cout << "Fermats Prime Tests" << endl;
 
 	c = fermatsPrimeTest(17, 5);
 	cout << test(c,1) << "\t" << 17 << "\t" << 5 << endl;
@@ -53,5 +57,20 @@ int main(){
 
 	c = fermatsPrimeTest(221, 24);
 	cout << test(c,0) << "\t" << 221 << "\t" << 24 << endl;
+
+	
+	cout << "Miller Rabin Prime Tests" << endl;
+
+	c = millerRabinTest(17, 5);
+	cout << test(c,1) << "\t" << 17 << "\t" << 5 << endl;
+
+	c = millerRabinTest(6, 5);
+	cout << test(c,0) << "\t" << 6 << "\t" << 5 << endl;
+
+	c = millerRabinTest(221, 174);
+	cout << test(c,1) << "\t" << 221 << "\t" << 174 << endl;
+
+	c = millerRabinTest(221, 137);
+	cout << test(c,0) << "\t" << 221 << "\t" << 137 << endl;
 	return 0;
 }

@@ -1,0 +1,107 @@
+Start testing: Aug 06 11:53 PDT
+----------------------------------------------------------
+1/4 Testing: Functions
+1/4 Test: Functions
+Command: "/root/dev/oculta/functions_test.o"
+Directory: /root/dev/oculta
+"Functions" start time: Aug 06 11:53 PDT
+Output:
+----------------------------------------------------------
+GCD Tests
+PASS	12	4
+PASS	12	7
+PASS	2	7
+PASS	2134	712412
+PASS	2134849231	712412342
+Inverse Tests
+PASS	19	17
+PASS	29	42
+PASS	3123123123	2623423423
+PASS	17	19
+PASS	17	5
+PASS	6	5
+PASS	221	38
+PASS	221	24
+PASS	17	5
+PASS	6	5
+PASS	221	174
+PASS	221	137
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"Functions" end time: Aug 06 11:53 PDT
+"Functions" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/4 Testing: Aes
+2/4 Test: Aes
+Command: "/root/dev/oculta/aes_test.o"
+Directory: /root/dev/oculta
+"Aes" start time: Aug 06 11:53 PDT
+Output:
+----------------------------------------------------------
+AES Tests
+Symmetric Encryption
+Plain Text 01101111
+01101011
+00000111
+00111000
+Cipher Text: 8
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"Aes" end time: Aug 06 11:53 PDT
+"Aes" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/4 Testing: Rsa
+3/4 Test: Rsa
+Command: "/root/dev/oculta/rsa_test.o"
+Directory: /root/dev/oculta
+"Rsa" start time: Aug 06 11:53 PDT
+Output:
+----------------------------------------------------------
+RSA Tests
+Asymmetric Encryption
+Rsa
+ln = 166980
+p = 1381
+q = 1453
+n = 2006593
+d = 154861
+e = 86101
+PASS
+PASS
+PASS
+PASS
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"Rsa" end time: Aug 06 11:53 PDT
+"Rsa" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/4 Testing: Base64
+4/4 Test: Base64
+Command: "/root/dev/oculta/base64_test.o"
+Directory: /root/dev/oculta
+"Base64" start time: Aug 06 11:53 PDT
+Output:
+----------------------------------------------------------
+Base64 Tests
+PASS
+PASS
+PASS
+PASS
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"Base64" end time: Aug 06 11:53 PDT
+"Base64" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Aug 06 11:53 PDT

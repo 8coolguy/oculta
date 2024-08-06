@@ -1,7 +1,7 @@
 #include "functions.hpp"
 #include "types.hpp"
 #include <iostream>
-
+#include <cassert>
 /*
 *
 *
@@ -137,3 +137,23 @@ bool fermatsPrimeTest(int64 n, int64 a){
 	//assert that a is not divisible by n
 	return modularExponentiation(a, n - 1, n) == 1;
 }
+/*
+* Miller Rabins Primality Test
+* Source: https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test#Complexity
+*/
+bool millerRabinTest(int64 n, int64 a){
+	//assert n > 2 and also a is coprime to n
+	assert(n > 2 && gcd(a, n) == 1);
+	int64 d = n - 1;
+	int64 s = 0;
+	while(d % 2 == 0){
+		d = d >> 1;
+		s+= 1;
+	}
+	if (modularExponentiation(a, d, n) == 1) return true;
+	for(int64 i = 0; i < s; i++){
+		if(modularExponentiation(a, (d << i), n) == n - 1) return true;
+	}
+	return false;
+}
+
