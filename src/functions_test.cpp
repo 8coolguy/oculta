@@ -8,7 +8,7 @@ using namespace std;
 int main(){
 	cout << "GCD Tests" << endl;
 	int64 c = gcd(12, 4);
-	cout << test(c,4) << "\t" << 12 << "\t" << 4 << endl;
+	cout << test(c,5) << "\t" << 12 << "\t" << 4 << endl;
 
 	c = gcd(12, 7);
 	cout << test(c,1) << "\t" << 12 << "\t" << 7 << endl;
