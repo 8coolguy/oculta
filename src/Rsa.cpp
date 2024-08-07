@@ -22,6 +22,8 @@ Rsa::Rsa() {
 	std::cout << "Rsa" << std::endl;
 	_p = 1381;
 	_q = 1453;
+	_p = generatePrime();
+	_q = generatePrime();
 	n = _p * _q;
 	generateKeys();
 	std::cout << "p = " << _p << std::endl << "q = " << _q << std::endl;
@@ -40,7 +42,7 @@ void Rsa::generateKeys() {
 	
 
 	int64 ln = carmichaelFunction(_p, _q);
-	std::cout << "ln = " << (int)ln << std::endl;
+	std::cout << "ln = " << (int64)ln << std::endl;
 
 	while(gcd(e, ln) != 1) {
 		e= std::rand() % ln;

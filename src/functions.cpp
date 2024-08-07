@@ -2,6 +2,8 @@
 #include "types.hpp"
 #include <iostream>
 #include <cassert>
+#include <cmath>
+#include <random>
 /*
 *
 *
@@ -73,18 +75,17 @@ int64 modularExponentiation(int64 base, int64 exponent, int64 mod){
 	base = base % mod;
 	while(exponent > 0){
 		if(exponent % 2 == 1){
-			res = (res * base) % mod;
+			//res = (res * base) % mod;
+			res = ((int128)res * (int128)base) % mod;
 		}
 		exponent = exponent >> 1;
-		base = (base * base) % mod;
+		//base = (base * base) % mod;
+		base = ((int128)base * (int128)base) % mod;
 	}
 	return res;
 }
 
 /*
-*
-*
-*
 *
 *
 *
@@ -98,8 +99,8 @@ std::string toString(int64 message){
 	}
 	return res;
 }
+
 /*
-*
 *
 *
 *
@@ -111,6 +112,17 @@ int64 toInt(std::string message){
 	}
 	return res;
 }
+/*
+*
+*
+*
+*/
+int64 random64bit(){
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_int_distribution<int64> dist(std::llround(std::pow(2,30)), std::llround(std::pow(2,31)));
+	return dist(gen);
+}
 
 /*
 * Generate a prime number for RSA.
@@ -118,19 +130,19 @@ int64 toInt(std::string message){
 *
 *
 */
-int64 generatePrimes(){
+int64 generatePrime(){
 	//1. Generate Random Number
-	
 	//2. Check if it is prime with miller Rabin or fermats prime test
-	
 	//3. If not, generate another
+	int64 prime = random64bit();
+	while(!millerRabinAmplify(prime) || prime < 10000000){
+		prime = random64bit();
+	}
+	return prime;
 }
 
 /*
 * Fermats Primality Test
-*
-*
-*
 *
 */
 bool fermatsPrimeTest(int64 n, int64 a){

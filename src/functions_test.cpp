@@ -114,5 +114,26 @@ int main(){
 	c = millerRabinAmplify(2893922039);
 	cout << test(c,1) << "\t" << 2893922039 << endl;
 
+	c = millerRabinAmplify(293049567887437);
+	cout << test(c,1) << "\t" << 293049567887437 << endl;
+
+	c = millerRabinAmplify(100363750742395471);
+	cout << test(c,1) << "\t" << 100363750742395471 << endl;
+
+	cout << "Manual Prime Tests" << endl;
+	
+	cout << generatePrime() << endl;
+	cout << generatePrime() << endl;
+	cout << generatePrime() << endl;
+	cout << generatePrime() << endl;
+	cout << generatePrime() << endl;
+	cout << generatePrime() << endl;
+	cout << generatePrime() << endl;
+	cout << generatePrime() << endl;
+	cout << generatePrime() << endl;
+	cout << generatePrime() << endl;
+
+	random64bit(); 
+
 	return 0;
 }
