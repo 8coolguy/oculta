@@ -137,13 +137,15 @@ bool fermatsPrimeTest(int64 n, int64 a){
 	//assert that a is not divisible by n
 	return modularExponentiation(a, n - 1, n) == 1;
 }
+
 /*
 * Miller Rabins Primality Test
 * Source: https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test#Complexity
 */
 bool millerRabinTest(int64 n, int64 a){
 	//assert n > 2 and also a is coprime to n
-	assert(n > 2 && gcd(a, n) == 1);
+	assert(n > 2);
+	if(gcd(a, n) != 1) return false;
 	int64 d = n - 1;
 	int64 s = 0;
 	while(d % 2 == 0){
@@ -157,3 +159,16 @@ bool millerRabinTest(int64 n, int64 a){
 	return false;
 }
 
+/*
+* Miller Rabin Amplification with many iterations
+* Source: https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test#Complexity
+*
+*/
+bool millerRabinAmplify(int64 n){
+	int as[] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37};
+	for(int i = 0; i < 12; i++){
+		//std::cout << as[i] << std::endl;
+		if(!millerRabinTest(n, as[i])) return false;
+	}
+	return true;
+}

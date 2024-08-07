@@ -13,4 +13,5 @@ int64 toInt(std::string message);
 
 bool fermatsPrimeTest(int64 n, int64 a);
 bool millerRabinTest(int64 n, int64 a);
+bool millerRabinAmplify(int64 n);
 #endif // 

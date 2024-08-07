@@ -72,5 +72,47 @@ int main(){
 
 	c = millerRabinTest(221, 137);
 	cout << test(c,0) << "\t" << 221 << "\t" << 137 << endl;
+
+	cout << "Miller Rabin Amplification Prime Tests" << endl;
+
+	c = millerRabinAmplify(43);
+	cout << test(c,1) << "\t" << 43 << endl;
+
+	c = millerRabinAmplify(6);
+	cout << test(c,0) << "\t" << 6 << endl;
+
+	c = millerRabinAmplify(221);
+	cout << test(c,0) << "\t" << 221 << endl;
+
+	c = millerRabinAmplify(77213);
+	cout << test(c,1) << "\t" << 77213 << endl;
+	
+	c = millerRabinAmplify(8114696549);
+	cout << test(c,1) << "\t" << 8114696549 << endl;
+
+	c = millerRabinAmplify(3213003161);
+	cout << test(c,1) << "\t" << 3213003161 << endl;
+
+	c = millerRabinAmplify(44077973);
+	cout << test(c,1) << "\t" << 44077973 << endl;
+
+	c = millerRabinAmplify(822518149);
+	cout << test(c,1) << "\t" << 822518149 << endl;
+
+	c = millerRabinAmplify(754146623);
+	cout << test(c,1) << "\t" << 754146623 << endl;
+
+	c = millerRabinAmplify(506669291);
+	cout << test(c,1) << "\t" << 506669291 << endl;
+
+	c = millerRabinAmplify(9160068971);
+	cout << test(c,1) << "\t" << 9160068971 << endl;
+
+	c = millerRabinAmplify(1010012683);
+	cout << test(c,1) << "\t" << 1010012683 << endl;
+
+	c = millerRabinAmplify(2893922039);
+	cout << test(c,1) << "\t" << 2893922039 << endl;
+
 	return 0;
 }
