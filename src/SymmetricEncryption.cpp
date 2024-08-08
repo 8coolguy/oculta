@@ -20,7 +20,7 @@ void SymmetricEncryption::encrypt(std::string message) {
 	std::cout << "Encrypt" << std::endl;
 }
 
-void SymmetricEncryption::decrypt() {
+void SymmetricEncryption::decrypt(std::string cipherText) {
 	std::cout << "Decrypt" << std::endl;
 }
 short SymmetricEncryption::getKey() {

@@ -97,6 +97,7 @@ int8 mixCol(int8 b) {
 	return c;
 }
 void SimpleAes::encrypt(std::string message) {
+	Base64Encoder encoder;
 	if(message.size()!=2) return;	
 	struct int48 key = expandKey();
 
@@ -119,7 +120,6 @@ void SimpleAes::encrypt(std::string message) {
 	temp0 = temp0 ^ key.w2;
 	temp1 = temp1 ^ key.w3;
 
-	//std::cout << std::bitset<8>(temp0) << std::endl << std::bitset<8>(temp1) << std::endl;
 	temp0 = subNib(temp0);
 	temp1 = subNib(temp1);
 
@@ -129,14 +129,22 @@ void SimpleAes::encrypt(std::string message) {
 	temp1 = temp1 ^ key.w5;
 
 	std::cout << std::bitset<8>(temp0) << std::endl << std::bitset<8>(temp1) << std::endl;
-	std::string res = "";
-	res += char(temp0);
-	res += char(temp1);
+	int64 temp = int64(temp0) | (int64(temp1) << 8);
 
+	std::string res = encoder.encode(temp);
+	//res += char(temp0);
+	//res += char(temp1);
+	std::cout <<"Cipher Text: "<< temp << std::endl;
 	std::cout <<"Cipher Text: "<< res << std::endl;
+	std::cout <<"Cipher Text: "<< encoder.decode(res) << std::endl;
 
 }
-void SimpleAes::decrypt() {
+void SimpleAes::decrypt(std::string cipherText) {
+	Base64Encoder encoder;
+	int64 cipher = encoder.decode(cipherText);
+
+	int8 temp0 = int8(cipher & 0xff);
+	int8 temp1 = int8((cipher >> 8) & 0xff);
 	
 }
 

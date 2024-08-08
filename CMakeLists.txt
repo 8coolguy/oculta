@@ -27,7 +27,7 @@ endforeach(LIBRARY)
 
 # Add executable
 add_executable(functions_test.o src/functions_test.cpp src/functions.cpp src/testing.cpp)
-add_executable(aes_test.o src/aes_test.cpp src/functions.cpp src/testing.cpp src/SymmetricEncryption.cpp src/SimpleAes.cpp)
+add_executable(aes_test.o src/aes_test.cpp src/functions.cpp src/testing.cpp src/SymmetricEncryption.cpp src/SimpleAes.cpp src/Base64Encoder.cpp)
 add_executable(rsa_test.o src/rsa_test.cpp src/functions.cpp src/testing.cpp src/AsymmetricEncryption.cpp src/Rsa.cpp src/Base64Encoder.cpp)
 add_executable(base64_test.o src/base64_test.cpp src/functions.cpp src/testing.cpp src/Base64Encoder.cpp)
 
