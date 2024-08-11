@@ -19,8 +19,8 @@ protected:
 	short _key;
 public:
 	SymmetricEncryption();
-	virtual void encrypt(std::string message);
-	virtual void decrypt(std::string message);
+	virtual std::string encrypt(std::string message);
+	virtual std::string decrypt(std::string message);
 	virtual short getKey();
 	void setKey(short key);
 };
@@ -31,10 +31,11 @@ private:
 	int8 _sboxInverse[16] = { 10, 5, 9, 11, 1, 7, 8, 15, 6, 0, 2, 3, 12, 4, 13, 14};
 	struct int48 expandKey();
 	int8 subNib(int8 b);
+	int8 invSubNib(int8 b);
 public:
 	SimpleAes();
-	virtual void encrypt(std::string message);
-	virtual void decrypt(std::string message);
+	virtual std::string encrypt(std::string message);
+	virtual std::string decrypt(std::string message);
 	virtual short getKey();
 
 };

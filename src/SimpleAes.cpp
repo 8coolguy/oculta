@@ -9,6 +9,7 @@
 #include <bitset>
 #include "SymmetricEncryption.hpp"
 #include "types.hpp"
+#include "functions.hpp"
 #include <iostream>
 #include <string>
 
@@ -17,6 +18,14 @@ int8 SimpleAes::subNib(int8 b) {
 	int8 n1 = b >> 4;
 	n0 = _sbox[n0];
 	n1 = _sbox[n1];
+	b = (n1 << 4) | n0;
+	return b;
+}
+int8 SimpleAes::invSubNib(int8 b) {
+	int8 n0 = b & 0x0f;
+	int8 n1 = b >> 4;
+	n0 = _sboxInverse[n0];
+	n1 = _sboxInverse[n1];
 	b = (n1 << 4) | n0;
 	return b;
 }
@@ -96,16 +105,48 @@ int8 mixCol(int8 b) {
 
 	return c;
 }
-void SimpleAes::encrypt(std::string message) {
-	Base64Encoder encoder;
-	if(message.size()!=2) return;	
-	struct int48 key = expandKey();
+int8 invMixCol(int8 b) {
 
+	int8 c;
+	int8 seven = b >> 0 & 1;
+	int8 six = b >> 1 & 1;
+	int8 five = b >> 2 & 1;
+	int8 four = b >> 3 & 1;
+	int8 three = b >> 4 & 1;
+	int8 two = b  >> 5 & 1;
+	int8 one = b >> 6 & 1;
+	int8 zero = b >> 7 & 1;
+
+	int8 temp4 = one ^ seven;
+	int8 temp1 = zero ^ six;
+	int8 temp0 = three ^ five;
+	int8 temp5 = two ^ four;
+
+	int8 temp2 = two ^ temp4 ^ temp5;
+	int8 temp3 = three ^ temp5;
+	int8 temp6 = zero ^ temp0;
+	int8 temp7 = seven ^ temp1;
+	c = 
+		(temp0) << 7 |
+		(temp1) << 6 |
+		(temp2) << 5 |
+		(temp3) << 4 |
+		(temp4) << 3 | 
+		(temp5) << 2 |
+		(temp6) << 1 |
+		(temp7) << 0;
+		
+
+	return c;
+}
+std::string SimpleAes::encrypt(std::string message) {
+	Base64Encoder encoder;
+	if(message.size()!=2) return std::string();
+	struct int48 key = expandKey();
 	
 	int8 temp0 = int8((char)message[0]);
 	int8 temp1 = int8((char)message[1]);
 
-	std::cout <<"Plain Text " << std::bitset<8>(temp0) << std::endl << std::bitset<8>(temp1) << std::endl;
 	temp0 = temp0 ^ key.w0;
 	temp1 = temp1 ^ key.w1;
 
@@ -128,23 +169,51 @@ void SimpleAes::encrypt(std::string message) {
 	temp0 = temp0 ^ key.w4;
 	temp1 = temp1 ^ key.w5;
 
-	std::cout << std::bitset<8>(temp0) << std::endl << std::bitset<8>(temp1) << std::endl;
 	int64 temp = int64(temp0) | (int64(temp1) << 8);
 
 	std::string res = encoder.encode(temp);
-	//res += char(temp0);
-	//res += char(temp1);
-	std::cout <<"Cipher Text: "<< temp << std::endl;
-	std::cout <<"Cipher Text: "<< res << std::endl;
-	std::cout <<"Cipher Text: "<< encoder.decode(res) << std::endl;
+
+	//std::cout <<"Cipher Text: "<< temp << std::endl;
+	//std::cout <<"Cipher Text: "<< res << std::endl;
+	//std::cout <<"Cipher Text: "<< encoder.decode(res) << std::endl;
+	
+	return res;
 
 }
-void SimpleAes::decrypt(std::string cipherText) {
+std::string SimpleAes::decrypt(std::string cipherText) {
+	if(cipherText.size()==2) return std::string();
 	Base64Encoder encoder;
 	int64 cipher = encoder.decode(cipherText);
 
 	int8 temp0 = int8(cipher & 0xff);
 	int8 temp1 = int8((cipher >> 8) & 0xff);
 	
-}
+	//std::cout << std::bitset<8>(temp0) << std::endl << std::bitset<8>(temp1) << std::endl;
+	
+	struct int48 key = expandKey();
 
+	temp0 = temp0 ^ key.w4;
+	temp1 = temp1 ^ key.w5;
+
+	shiftRow(temp0, temp1);
+
+	temp0 = invSubNib(temp0);
+	temp1 = invSubNib(temp1);
+
+	temp0 = temp0 ^ key.w2;
+	temp1 = temp1 ^ key.w3;
+
+	temp0 = invMixCol(temp0);
+	temp1 = invMixCol(temp1);
+
+	shiftRow(temp0, temp1);
+
+	temp0 = invSubNib(temp0);
+	temp1 = invSubNib(temp1);
+
+	temp0 = temp0 ^ key.w0;
+	temp1 = temp1 ^ key.w1;
+
+	int64 temp = int64(temp0) | (int64(temp1) << 8);
+	return toString(temp);	
+}
