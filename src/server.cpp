@@ -7,7 +7,14 @@
 void ev_handler(struct mg_connection *c, int ev, void *ev_data) {
 	if (ev == MG_EV_HTTP_MSG) {
 		struct mg_http_message *hm = (struct mg_http_message *) ev_data;
-		struct mg_http_serve_opts opts = { .root_dir = "./web_root/" };
+		struct mg_http_serve_opts opts = { .root_dir = "./" };
+		mg_http_serve_dir(c, hm, &opts);
+	}
+}
+void login_handler(struct mg_connection *c, int ev, void *ev_data) {
+	if (ev == MG_EV_HTTP_MSG) {
+		struct mg_http_message *hm = (struct mg_http_message *) ev_data;
+		struct mg_http_serve_opts opts = { .root_dir = "./" };
 		mg_http_serve_dir(c, hm, &opts);
 	}
 }

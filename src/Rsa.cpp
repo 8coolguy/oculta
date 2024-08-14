@@ -40,7 +40,6 @@ void Rsa::generateKeys() {
 	// generate e
 	e = _p - 1;
 	
-
 	int64 ln = carmichaelFunction(_p, _q);
 	std::cout << "ln = " << (int64)ln << std::endl;
 

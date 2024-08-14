@@ -1,10 +1,10 @@
-Start testing: Aug 07 17:06 PDT
+Start testing: Aug 10 23:32 PDT
 ----------------------------------------------------------
 1/4 Testing: Functions
 1/4 Test: Functions
 Command: "/root/dev/oculta/functions_test.o"
 Directory: /root/dev/oculta
-"Functions" start time: Aug 07 17:06 PDT
+"Functions" start time: Aug 10 23:32 PDT
 Output:
 ----------------------------------------------------------
 GCD Tests
@@ -46,21 +46,21 @@ PASS	2893922039
 PASS	293049567887437
 PASS	100363750742395471
 Manual Prime Tests
-1319595293
-1945905319
-1988088911
-1609986569
-1957812811
-1463622211
-1722355891
-1331909087
-1246204747
-1311289741
+1246938359
+1575705191
+1734621257
+1507979287
+1444341671
+2142921947
+2036565997
+1129999853
+1254844057
+2043518747
 <end of output>
-Test time =   0.01 sec
+Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"Functions" end time: Aug 07 17:06 PDT
+"Functions" end time: Aug 10 23:32 PDT
 "Functions" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -68,23 +68,18 @@ Test Passed.
 2/4 Test: Aes
 Command: "/root/dev/oculta/aes_test.o"
 Directory: /root/dev/oculta
-"Aes" start time: Aug 07 17:06 PDT
+"Aes" start time: Aug 10 23:32 PDT
 Output:
 ----------------------------------------------------------
 AES Tests
 Symmetric Encryption
-Plain Text 01101111
-01101011
-00000111
-00111000
-Cipher Text: 14343
-Cipher Text: HgDAAAAAAAA
-Cipher Text: 14343
+PASS
+PASS
 <end of output>
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"Aes" end time: Aug 07 17:06 PDT
+"Aes" end time: Aug 10 23:32 PDT
 "Aes" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -92,18 +87,18 @@ Test Passed.
 3/4 Test: Rsa
 Command: "/root/dev/oculta/rsa_test.o"
 Directory: /root/dev/oculta
-"Rsa" start time: Aug 07 17:06 PDT
+"Rsa" start time: Aug 10 23:32 PDT
 Output:
 ----------------------------------------------------------
 RSA Tests
 Asymmetric Encryption
 Rsa
-ln = 1111045160601179160
-p = 1746700313
-q = 1272164611
-n = 2222090324221223243
-d = 1021440672859357801
-e = 1922860801
+ln = 1061379001308786594
+p = 1897439279
+q = 1118748847
+n = 2122758005633761313
+d = 438981443786298535
+e = 483147985
 PASS
 PASS
 PASS
@@ -112,7 +107,7 @@ PASS
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"Rsa" end time: Aug 07 17:06 PDT
+"Rsa" end time: Aug 10 23:32 PDT
 "Rsa" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -120,7 +115,7 @@ Test Passed.
 4/4 Test: Base64
 Command: "/root/dev/oculta/base64_test.o"
 Directory: /root/dev/oculta
-"Base64" start time: Aug 07 17:06 PDT
+"Base64" start time: Aug 10 23:32 PDT
 Output:
 ----------------------------------------------------------
 Base64 Tests
@@ -132,8 +127,8 @@ PASS
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"Base64" end time: Aug 07 17:06 PDT
+"Base64" end time: Aug 10 23:32 PDT
 "Base64" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Aug 07 17:06 PDT
+End testing: Aug 10 23:32 PDT
