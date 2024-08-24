@@ -18,7 +18,7 @@ foreach(LIBRARY ${LIBRARIES})
     add_subdirectory("${LIBRARIES_DIR}/${LIBRARY}")
 endforeach(LIBRARY)
 
-add_executable("${PROJECT_NAME}" "src/server.cpp")
+add_executable(${PROJECT_NAME} src/server.cpp src/net.cpp)
 
 foreach(LIBRARY ${LIBRARIES})
     target_link_libraries("${PROJECT_NAME}" PUBLIC "${LIBRARY}")
