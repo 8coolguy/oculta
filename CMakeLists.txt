@@ -1,3 +1,7 @@
+include(FetchContent)
+
+
+
 cmake_minimum_required(VERSION 3.1)
 
 #Setting C++11 standard
@@ -25,6 +29,16 @@ foreach(LIBRARY ${LIBRARIES})
     target_include_directories("${PROJECT_NAME}" PUBLIC "${LIBRARIES_DIR}/${LIBRARY}" "${LIBRARIES_DIR}/${LIBRARY}")
 endforeach(LIBRARY)
 
+FetchContent_Declare(
+  libpqxx
+  GIT_REPOSITORY https://github.com/jtv/libpqxx.git
+  GIT_TAG a6b1d60e74c1427c8ac2324b85cd4a0dc2068332
+)
+set(PQXX_LIBRARIES pqxx_static)
+
+FetchContent_MakeAvailable(libpqxx)
+
+target_link_libraries(${PROJECT_NAME} PUBLIC "${PQXX_LIBRARIES}")
 # Add executable
 add_executable(functions_test.o src/functions_test.cpp src/functions.cpp src/testing.cpp)
 add_executable(aes_test.o src/aes_test.cpp src/functions.cpp src/testing.cpp src/SymmetricEncryption.cpp src/SimpleAes.cpp src/Base64Encoder.cpp)
