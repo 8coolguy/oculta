@@ -22,7 +22,7 @@
 //	-number of other characters
 //once the sets the settings, they can change it and previous users who registered will still be fine
 struct settings{
-	int length, numbers, others;
+	int length, numbers, others,capitals,token_duration;
 };
 
 void net_init(struct mg_mgr *mgr, struct settings *s);

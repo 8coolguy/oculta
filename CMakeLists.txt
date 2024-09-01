@@ -13,7 +13,6 @@ set(PROJECT_SOURCE_DIR src)
 set(LIBRARIES_DIR libs)
 set(LIBRARIES 
     mongoose
-    sha256
 )
 project(${PROJECT_NAME})
 enable_testing()
@@ -28,7 +27,6 @@ foreach(LIBRARY ${LIBRARIES})
     target_link_libraries("${PROJECT_NAME}" PUBLIC "${LIBRARY}")
     target_include_directories("${PROJECT_NAME}" PUBLIC "${LIBRARIES_DIR}/${LIBRARY}" "${LIBRARIES_DIR}/${LIBRARY}")
 endforeach(LIBRARY)
-
 FetchContent_Declare(
   libpqxx
   GIT_REPOSITORY https://github.com/jtv/libpqxx.git
