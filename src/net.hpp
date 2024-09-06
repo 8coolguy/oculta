@@ -13,7 +13,7 @@
 #endif
 
 #define FS (&mg_fs_posix) 
-#define ROOT_DIR "./web_root"
+#define ROOT_DIR "./examples/login"
 
 //Settings
 //A admin user can configure admin settings which modify the:

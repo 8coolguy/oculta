@@ -6,3 +6,4 @@ oculta
 *.o
 libs/*
 *.cmake
+_deps

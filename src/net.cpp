@@ -111,6 +111,7 @@ void handle_login(struct mg_http_message *hm, mg_connection * c, struct settings
 	int user_id;
 	std::string dbhash, token;	
 	mg_http_creds(hm, user, sizeof(user), pass, sizeof(pass));
+	std::cout << user << " " << pass << std::endl;
 	pqxx::work work(*conn);
 	pqxx::result result = work.exec("SELECT * FROM users WHERE name = '" + std::string(user) + "'");
 	work.commit();
