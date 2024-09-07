@@ -1,9 +1,13 @@
+*/CMakeFiles/
 CMakeFiles/
+*/CMakeCache.txt
 CMakeCache.txt
+*/Makefile
 Makefile
+*.a
 functions
 oculta
 *.o
-libs/*
+libs/mongoose/mongoose.*
 *.cmake
 _deps
